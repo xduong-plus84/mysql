@@ -15,7 +15,7 @@ CREATE TABLE users(
 	user_id INT AUTO_INCREMENT PRIMARY KEY,
     full_name VARCHAR(100),
     email VARCHAR(100),
-    password VARCHAR(100)
+    passwords VARCHAR(100)
 );
 
 DROP TABLE IF EXISTS rate_res;
@@ -45,7 +45,6 @@ CREATE TABLE food_type (
     type_name VARCHAR(100)
 );
 
-
 DROP TABLE IF EXISTS foods;
 CREATE TABLE foods(
 	food_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -62,7 +61,7 @@ CREATE TABLE orders(
 	user_id INT,
     food_id INT,
     amount INT,
-    code VARCHAR(100),
+    codes VARCHAR(100),
     arr_sub_id VARCHAR(150),
     PRIMARY KEY (user_id, food_id),
     FOREIGN KEY (user_id) REFERENCES users(user_id),
@@ -77,3 +76,66 @@ CREATE TABLE sub_food(
     food_id INT,
     FOREIGN KEY (food_id) REFERENCES foods(food_id)
 );
+
+
+INSERT INTO restaurant (res_id, res_name, res_image, res_desc) VALUES (1,"Res 1","Hinh Res 1","Desc 1"),(2,"Res 2","Hinh Res 2","Desc 2"), (3,"Res 3","Hinh Res 3","Desc 3"),(4,"Res 4","Hinh Res 4","Desc 4"), (5,"Res 5","Hinh Res 5","Desc 5"), (6,"Res 6","Hinh Res 6","Desc 6"), (7,"Res 7","Hinh Res 7","Desc 7"), (8,"Res 8","Hinh Res 8","Desc 8"), (9,"Res 9","Hinh Res 9","Desc 9"), (10,"Res 10","Hinh Res 10","Desc 10");
+INSERT INTO users (user_id, full_name, email, passwords) VALUES (1, "Fullname 1", "Email 1", "Passwords 1"),(2, "Fullname 2", "Email 2", "Passwords 2"),(3, "Fullname 3", "Email 3", "Passwords 3"),(4, "Fullname 4", "Email 4", "Passwords 4"),(5, "Fullname 5", "Email 5", "Passwords 5"),(6, "Fullname 6", "Email 6", "Passwords 6"),(7, "Fullname 7", "Email 7", "Passwords 7"),(8, "Fullname 8", "Email 8", "Passwords 8"),(9, "Fullname 9", "Email 9", "Passwords 9"),(10, "Fullname 10", "Email 10", "Passwords 10");
+INSERT INTO rate_res (res_id, user_id, amount, date_rate) VALUES (1, 6, 3, "2021-12-12 17:30:59"),(2, 1, 2, "2021-10-12 17:30:59"),(5, 9, 4, "2021-12-12 18:30:59"),(1, 3, 5, "2021-05-12 17:39:59"),(9, 2, 1, "2021-11-12 17:42:59"),(3, 7, 4, "2020-12-12 20:30:59"),(4, 2, 5, "2021-12-12 21:30:59"),(9, 9, 3, "2021-12-16 17:06:59"),(2, 4, 2, "2021-12-18 18:15:59"),(7, 5, 1, "2021-12-11 19:24:59");
+INSERT INTO like_res (user_id, res_id, date_like) VALUES (1, 6, "2021-12-14 17:30:59"),(3, 8, "2020-12-11 18:15:59"),(6, 4, "2021-04-29 12:10:59"),(9, 7, "2022-03-27 17:40:59"),(6, 7, "2020-05-16 11:50:59"),(4, 2, "2021-02-22 17:40:59"),(2, 3, "2022-01-16 10:10:59"),(8, 5, "2020-11-12 17:50:59"),(6, 9, "2020-10-05 01:40:59"),(3, 4, "2022-08-12 09:23:59"),(9, 6, "2021-07-03 05:05:59"),(1, 7, "2022-06-02 16:06:59"),(2, 8, "2020-12-09 14:09:59"),(5, 2, "2021-11-12 20:12:59"),(9, 1, "2022-06-11 19:19:59"),(7, 3, "2021-05-10 17:01:59"),(4, 7, "2020-10-23 18:19:59"),(3, 5, "2021-11-12 17:25:59"),(2, 6, "2022-03-20 15:29:59"),(2, 1, "2022-04-19 16:41:59"),(6, 5, "2020-06-18 20:46:59");
+INSERT INTO food_type (type_id, type_name) VALUES (1, "Mon loai 1"),(2, "Mon loai 2"),(3, "Mon loai 3"),(4, "Mon loai 4"),(5, "Mon loai 5");
+INSERT INTO foods (food_id, food_name, image, price, food_desc, type_id) VALUES (1, "Ten mon 1", "Hinh mon 1", 100, "Desc mon 1", 3),(2, "Ten mon 2", "Hinh mon 2", 150, "Desc mon 1", 3),(3, "Ten mon 3", "Hinh mon 3", 200, "Desc mon 1", 3),(4, "Ten mon 4", "Hinh mon 4", 250, "Desc mon 1", 3),(5, "Ten mon 5", "Hinh mon 5", 320, "Desc mon 1", 3),(6, "Ten mon 6", "Hinh mon 6", 110, "Desc mon 1", 3),(7, "Ten mon 7", "Hinh mon 7", 160, "Desc mon 1", 3),(8, "Ten mon 8", "Hinh mon 8", 150, "Desc mon 1", 3),(9, "Ten mon 9", "Hinh mon 9", 130, "Desc mon 1", 3),(10, "Ten mon 10", "Hinh mon 10", 120, "Desc mon 1", 3),(11, "Ten mon 11", "Hinh mon 11", 200, "Desc mon 1", 3),(12, "Ten mon 12", "Hinh mon 12", 220, "Desc mon 1", 3),(13, "Ten mon 13", "Hinh mon 13", 250, "Desc mon 1", 3),(14, "Ten mon 14", "Hinh mon 14", 300, "Desc mon 1", 3),(15, "Ten mon 15", "Hinh mon 15", 200, "Desc mon 1", 3),(16, "Ten mon 16", "Hinh mon 16", 10, "Desc mon 1", 3),(17, "Ten mon 17", "Hinh mon 17", 5, "Desc mon 1", 3),(18, "Ten mon 18", "Hinh mon 18", 100, "Desc mon 1", 3),(19, "Ten mon 19", "Hinh mon 19", 90, "Desc mon 1", 3),(20, "Ten mon 20", "Hinh mon 20", 150, "Desc mon 1", 3);
+INSERT INTO orders (user_id, food_id, amount, codes, arr_sub_id) VALUES (1, 19, 1, "CODEMON20", "array sub id 1"),(3, 1, 6, "CODEMON20", "array sub id 1"),(5, 3, 3, "CODEMON20", "array sub id 1"),(1, 12, 9, "CODEMON20", "array sub id 1"),(2, 13, 4, "CODEMON20", "array sub id 1"),(1, 20, 7, "CODEMON20", "array sub id 1"),(2, 10, 2, "CODEMON20", "array sub id 1"),(4, 15, 3, "CODEMON20", "array sub id 1"),(2, 11, 5, "CODEMON20", "array sub id 1"),(4, 12, 1, "CODEMON20", "array sub id 1"),(6, 13, 8, "CODEMON20", "array sub id 1");
+INSERT INTO sub_food (sub_id, sub_name, sub_price, food_id) VALUES (1, "Sub 1", 12000, 12),(2, "Sub 2", 10000, 11),(3, "Sub 3", 20000, 19),(4, "Sub 4", 25000, 5),(5, "Sub 5", 26000, 11);
+
+
+-- Query
+
+USE food_app;
+
+-- tìm 5 người like nhà hàng nhiều nhất -> hiện tên và số like
+SELECT users.full_name AS ho_va_ten, COUNT(like_res.res_id) AS so_luot_like 
+FROM users
+LEFT JOIN like_res
+ON users.user_id = like_res.user_id
+GROUP BY users.user_id
+ORDER BY so_luot_like DESC
+LIMIT 5;
+
+-- tìm 2 nhà hàng được like nhiều nhất -> hiện tên và số like
+SELECT restaurant.res_name AS ten_nha_hang, COUNT(like_res.res_id) AS so_luot_like
+FROM restaurant
+LEFT JOIN like_res
+ON restaurant.res_id = like_res.res_id
+GROUP BY restaurant.res_id
+ORDER BY so_luot_like DESC
+LIMIT 2;
+
+-- tìm người dùng đặt số lượng hàng nhiều nhất
+select users.user_id AS ma_KH, users.full_name AS ho_va_ten, SUM(orders.amount) AS tong_so_don_hang
+FROM users
+LEFT JOIN orders
+ON users.user_id = orders.user_id
+GROUP BY users.user_id
+LIMIT 1;
+
+
+-- tìm người dùng không hoạt động trong hệ thống ( hiện luôn số like, số đánh giá, số đơn hàng )
+SELECT users.user_id AS ma_khach_hang, users.full_name as ho_va_ten, COUNT(like_res.res_id) AS so_luot_like, COUNT(rate_res.res_id) AS so_luot_danh_gia, IFNULL(SUM(orders.amount), 0) AS tong_so_don_hang
+FROM users
+LEFT JOIN rate_res
+ON users.user_id = rate_res.user_id
+LEFT JOIN like_res
+ON users.user_id = like_res.user_id
+LEFT JOIN orders
+ON users.user_id = orders.user_id
+WHERE rate_res.user_id IS NULL && like_res.user_id IS NULL && orders.user_id is NULL
+GROUP BY users.user_id
+;
+
+-- tính trung bình sub_food của một food
+SELECT foods.food_id AS ma_food, foods.food_name AS ten_mon, AVG(sub_price) AS trung_binh_gia_sub_food
+FROM foods
+LEFT JOIN sub_food
+ON foods.food_id = sub_food.food_id
+GROUP BY foods.food_id
+ORDER BY trung_binh_gia_sub_food DESC;
